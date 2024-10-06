@@ -13,4 +13,4 @@ bcode.c: rules.py
 
 .PHONY: clean
 clean:
-	rm -rf *.o exec
+	rm -rf *.o exec bcode.c bcode.h

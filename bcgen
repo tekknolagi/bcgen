@@ -37,6 +37,8 @@ struct compile_state {{
 
 {self.select_header}
 
+{self.reg_enum}
+
 void run(struct compile_state *cs, ubcval_t ri[{self.r}], dbcval_t fi[{self.f}]);
 void init(struct compile_state *cs);
 void end(struct compile_state *cs);
@@ -452,8 +454,11 @@ class BCGen:
         for f in rfregs:
             self.rregs += f
 
+        reg_enum = ['R' + str(i) for i in range(self.r)]
+
         with open(name + '.h', 'w') as f:
             self.select_header = ''.join(self.select_header)
+            self.reg_enum = 'enum bcode_reg {' + ', '.join(reg_enum) + '};\n'
             f.write(bcode_header_fmt.format(self=self))
 
         with open(name + '.c', 'w') as f:
