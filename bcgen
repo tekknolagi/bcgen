@@ -455,6 +455,7 @@ class BCGen:
             self.rregs += f
 
         reg_enum = ['R' + str(i) for i in range(self.r)]
+        reg_enum.append('NUM_BCREGS')
 
         with open(name + '.h', 'w') as f:
             self.select_header = ''.join(self.select_header)
