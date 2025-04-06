@@ -13,9 +13,7 @@ int main()
 	bcval_t l = label(&cs); // top
 	select_addr(&cs, R0, R0, R2); // add iter to total
 	select_addi(&cs, R2, R2, 1);
-	bcreloc_t r = select_bltr(&cs, R2, R1, 0); // 0 is placeholder value,
-						// should maybe add in an
-						// UNDEFINED macro or something
+	bcreloc_t r = select_bltr(&cs, R2, R1, PLACEHOLDER);
 	end(&cs);
 
 	patch(&cs, r, 0, l);

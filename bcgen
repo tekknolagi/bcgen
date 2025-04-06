@@ -41,6 +41,8 @@ struct compile_state {{
 
 {self.freg_enum}
 
+#define PLACEHOLDER 0
+
 void run(struct compile_state *cs, ubcval_t ri[{self.r}], dbcval_t fi[{self.f}]);
 void init(struct compile_state *cs);
 void end(struct compile_state *cs);
