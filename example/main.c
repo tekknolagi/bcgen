@@ -22,7 +22,7 @@ int main()
 
 	/* specify register state to run, note that seven is taken from
 	 * r = 7 in rules.py, should probably provide a macro for it? */
-	ubcval_t ri[7] = {0};
+	ubcval_t ri[NUM_GPREGS] = {0};
 
 	/* since we don't use floating point registers, we can pass in a NULL */
 	run(&cs, ri, NULL);
